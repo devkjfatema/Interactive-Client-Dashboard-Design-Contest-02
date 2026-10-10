@@ -1,0 +1,69 @@
+/* Fonts must stay at the very top */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Custom CSS (ported from src/index.css) ===== */
+html,
+body,
+#root {
+  min-height: 100%;
+  background: #0d0c0b;
+}
+body {
+  color: #f2ece2;
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[hidden] {
+  display: none !important;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #3a362f transparent;
+}
+.thin-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: #3a362f;
+  border-radius: 999px;
+}
+
+/* ===== Animations that framer-motion used to drive ===== */
+@keyframes typing-dot {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+.typing-dot {
+  animation: typing-dot 0.9s ease-in-out infinite;
+}
+@keyframes nudge-left {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-5px); }
+}
+@keyframes nudge-right {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+.nudge-left { animation: nudge-left 1.1s ease-in-out infinite; }
+.nudge-right { animation: nudge-right 1.1s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
